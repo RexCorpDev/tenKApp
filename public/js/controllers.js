@@ -18,6 +18,8 @@ app.controller('diceController', function($scope, mySocket){
   $scope.totalScore = 0;
   $scope.turnScore = 0;
   $scope.rollScore = 0;
+  $scope.rollAgain = true;
+
 
   mySocket.on('rollResults', resObj => {
     console.log('resObj= ', resObj);
@@ -26,8 +28,22 @@ app.controller('diceController', function($scope, mySocket){
     $scope.turnScore += resObj.turnScore;
     $scope.rollScore = resObj.rollScore;
 
+    $scope.dice1 = resObj.diceResult[0] ;
+    $scope.dice2 = resObj.diceResult[1] ;
+    $scope.dice3 = resObj.diceResult[2] ;
+    $scope.dice4 = resObj.diceResult[3] ;
+    $scope.dice5 = resObj.diceResult[4] ;
+    $scope.dice6 = resObj.diceResult[5] ;
+
+
+
+
+
     if(resObj.continue === false){
       $scope.continue = false;
+      $scope.rollAgain = false;
+      $scope.playerStatus = resObj.playerN;
+      console.log('roll again ', $scope.rollAgain);
     };
   });
 
@@ -35,9 +51,11 @@ app.controller('diceController', function($scope, mySocket){
   $scope.getDice = () => {
 
     if($scope.continue === true){
+      $scope.gameStatus = "It's Your Turn";
       mySocket.emit('rolledDice');
     };
   };
+
 
 
 });
