@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TenK</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TenK</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
 
-    <script src="/bower_components/angular/angular.min.js" charset="utf-8"></script>
-    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
-    <script src="/bower_components/angular-socket-io/socket.min.js" charset="utf-8"></script>
-    <script src="/bower_components/socket.io-client/socket.io.js" charset="utf-8"></script>
-    <script src="/js/module.js" charset="utf-8"></script>
-    <script src="/js/services.js" charset="utf-8"></script>
-    <script src="/js/controllers.js" charset="utf-8"></script>
-    <script src="/js/factories.js" charset="utf-8"></script>
-  </head>
-  <body ng-app='tenKApp' ng-controller='mainController'>
+  <script src="/bower_components/angular/angular.min.js" charset="utf-8"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
+  <script src="/bower_components/angular-socket-io/socket.min.js" charset="utf-8"></script>
+  <script src="/bower_components/socket.io-client/socket.io.js" charset="utf-8"></script>
+  <script src="/animatedDice/d6.js" charset="utf-8"></script>
+  <script src="/js/module.js" charset="utf-8"></script>
+  <script src="/js/services.js" charset="utf-8"></script>
+  <script src="/js/controllers.js" charset="utf-8"></script>
+  <script src="/js/factories.js" charset="utf-8"></script>
+</head>
+<body ng-app='tenKApp' ng-controller='mainController'>
+  <div class="container">
+    <h1>Ten Thousand</h1>
+    <div ui-view="dice">
+      <script type="text/javascript">
+      D6.dice(6 , function(result, useImages, diceArray){
 
-  <h1>Ten Thousand</h1>
+      });
+      </script>
 
-  </body>
+      <hr>
+      <div>
+        <h2>Total Score: {{ totalScore }} pts.</h2>
+        <h3>Turn Score : {{ turnScore }} pts.</h3>
+        <h4>You rolled for: {{ rollScore }} pts.</h4>
+      </div>
+      <hr>
+      <input type="number" value="">
+      <button ng-click='getDice()'> Roll </button>
+      <div>
+        {{ result }}
+      </div>
+
+    </div>
+  </div>
+
+
+</body>
 </html>

@@ -5,9 +5,8 @@ var app = express();
 var morgan = require('morgan');
 var path = require('path');
 var server = require('http').Server(app);
-
 var tenk = require('./tenk');
-
+var io = require('socket.io')(server);
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -15,7 +14,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-var io = require('socket.io')(server);
+
 io.on('connection', function(socket){
   console.log('Client Connected');
 
