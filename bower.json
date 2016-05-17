@@ -1,0 +1,25 @@
+{
+  "name": "15may2016_hwSocketGame",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "RexCorpDev <rexcorpfx@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/RexCorpDev/hello-world",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^0.2.18",
+    "bootstrap-material-design": "^0.5.9",
+    "angular": "^1.5.5",
+    "angular-socket-io": "^0.7.0",
+    "socket.io-client": "^1.4.6",
+    "font-awesome": "^4.6.3"
+  }
+}
